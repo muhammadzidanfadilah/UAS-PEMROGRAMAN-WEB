@@ -1,10 +1,13 @@
 # Project_UAS
 
-| NAMA  :| KELOMPOK 2 |
+|| KELOMPOK 2 |
 | --- | --- |
-| MUHAMMAD ZIDAN FADILLAH   :| 312210277 |
-| MUHAMMAD VERDY HASAN ALHAFIZ  :| 312210214 |
-|  SAHRUL RIDWANSYAH   :| 312210063 |
+
+| NAMA  | NIM |
+| --- | --- |
+| MUHAMMAD ZIDAN FADILLAH   | 312210277 |
+| MUHAMMAD VERDY HASAN ALHAFIZ  | 312210214 |
+|  SAHRUL RIDWANSYAH   | 312210063 |
 | KELAS :| TI.22.A2 |
 | DOSEN :| Agung Nugroho,S.Kom.,M.Kom |
 
@@ -17,6 +20,9 @@
 |username :| admin  |
 | --- | --- |
 |password : | admin |
+
+|| HASIL  |
+| --- | --- |
 |link Web HOSTING DEMO : |  |
 |link youtube : |  |
 | link drive pdf laporan : | https://drive.google.com/file/d/1DRwqcRCSN1mO3nH0eWp6lGLAwVG43ZH2/view?usp=drivesdk |
