@@ -24,9 +24,9 @@
 Pertama kita membuat database dahulu 
 
 
-# 1. DATABASE
+# 1. DATABASE dbchekclist
 
-- Database user
+- Table user
 
 ```
 CREATE TABLE IF NOT EXISTS `db_checklist`.`users` (
@@ -43,7 +43,7 @@ UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB
 ```
 
-- Database toilet
+- Table toilet
 
 ```
 CREATE TABLE IF NOT EXISTS `mydb`.`toilet` (
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`toilet` (
 PRIMARY KEY (`id`))
 ENGINE = InnoDB
 ```
-- Database checklist
+- Table  checklist
 
 ```
 CREATE TABLE IF NOT EXISTS `mydb`.`checklist` (
@@ -87,9 +87,166 @@ ENGINE = InnoDB
 
 # 2. TAMPILAN DAN ISI 
 
-Kemudian untuk tampilan database user itu sendiri 
+Kemudian untuk codingan tampilan dan isi database user itu sendiri 
 
--Koneksi.php
+- login_season
+
+```
+<?php
+
+session_start();
+
+if (!isset($_SESSION['isLogin']))
+header('location: login.php');
+
+?>
+```
+
+- Login.php
+
+```
+<?php
+session_start();
+$title ='Login';
+include_once 'koneksi.php';
+
+if (isset($_POST['submit'])){
+    $username = $_POST['username'];
+    $pass = $_POST['pass'];
+
+    $sql = "SELECT * FROM users WHERE username = '{$username}' AND pass = '{$pass}'";
+
+    $result = mysqli_query($conn, $sql);
+    if ($result && mysqli_affected_rows($conn) !=0){
+        $_SESSION['login'] = true;
+        $_SESSION['username'] = mysqli_fetch_array($result);
+
+        header('location: home.php');
+    }else
+    $errorMsg = "<p style=\"color:red;\">Gagal Login,
+    silakan ulangi lagi.</p>";
+}
+if (isset($errorMsg)) echo $errorMsg;
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Checklist Toilet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body style="margin-top: 30px; background-color: #8B008B;">
+<div class="container" style=" background-color: #2F4F4F; width: 70%; padding: 20px;" >
+<h1 style="color: #FFFFFF; text-align: center;">DATA CHECKLIST KEBERSIHAN TOILET</h1><br>
+<h2 style="color: #FFFFFF; text-align: center;">LOGIN</h2><br>
+    <form method="POST">
+        <div class="mb-3 row" style="background-color: #3CB371;">
+            <label for="staticEmail" class="col-sm-2 col-form-label" style="color: #FFFFFF;">Username</label>
+            <div class="col-sm-10">
+                <input style="color: #000000;" type="text" class="form-control" id="staticEmail" placeholder="Username" name="username">
+            </div>
+        </div>
+        <br>
+        <div class="mb-3 row " style="background-color: #3CB371;">
+            <label for="inputPassword" class="col-sm-2 col-form-label" style="color: #FFFFFF;">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" accept=""name="pass">
+            </div>
+        </div>
+        <br>
+        <div class="submit">
+            <button type="submit" name="submit" class="btn" style="background-color: #3CB371; color: #FFFFFF n ;">Login</button>
+        </div>
+        <div><br><br>
+            <p style="color: #FF4500;">Belum memiliki akun??</p>
+            <a href="tam_login.php" style="color: #FF4500;">Buat Akun Baru</a>
+        </div>
+    </form>
+</div>
+</body>
+```
+
+- Tam_login
+
+```
+<?php
+error_reporting(E_ALL);
+include_once 'koneksi.php';
+
+if (isset($_POST['submit']))
+{
+    $username = $_POST['username'];
+    $pass = $_POST['pass'];
+    $nama = $_POST['nama'];
+    $email = $_POST['email'];
+    $stat = $_POST['stat'];
+    $rol = $_POST['rol'];
+
+    $sql = 'INSERT INTO users ( username, pass, nama, email, stat, rol)';
+    $sql .= "VALUE ('$username', '$pass', '$nama', '$email', '$stat', '$rol')";
+    $result = mysqli_query($conn, $sql);
+    header('location: login.php');
+}
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tambah Akun</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body style="margin-top: 30px; background-color: #0A2647;">
+    <div class="container" style= "background-color: #144272; width: 30%; ">
+        <h1 style="color: #FFFFFF; text-align: center;">Tambah Akun</h1>
+        <div class="main">
+            <form method="post" action="tam_login.php" enctype="multipart/form-data">    
+                <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Username</span>
+                    <input type="text" name="username" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Password</span>
+                    <input type="password" name="pass" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Nama</span>
+                    <input type="text" name="nama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">E-mail</span>
+                    <input type="text" name="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="">
+                    <h6 style="color: #FFFFFF;">Status</h6>
+                    <select class="form-select" aria-label="Default select example" name="stat">
+                        <option value=""></option>
+                        <option value="Aktif">Aktif</option>
+                        <option value="Nonaktif">Non Aktif</option>
+                    </select>
+                </div><br>
+                <div class="">
+                    <h6 style="color: #FFFFFF;">Role</h6>
+                    <select class="form-select" aria-label="Default select example" name="rol">
+                        <option value=""></option>
+                        <option value="Admin">Admin</option>
+                        <option value="User">User</option>
+                    </select>
+                </div> <br>
+                <input type="submit" name="submit" value="Simpan" class= "btn" style="background-color: #2C74B3; color: #FFFFFF;">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+
+
+- Koneksi.php
 
 ```
 <?php 
@@ -501,160 +658,6 @@ header('location: index.php');
 ```
 
 
-- Login.php
-
-```
-<?php
-session_start();
-$title ='Login';
-include_once 'koneksi.php';
-
-if (isset($_POST['submit'])){
-    $username = $_POST['username'];
-    $pass = $_POST['pass'];
-
-    $sql = "SELECT * FROM users WHERE username = '{$username}' AND pass = '{$pass}'";
-
-    $result = mysqli_query($conn, $sql);
-    if ($result && mysqli_affected_rows($conn) !=0){
-        $_SESSION['login'] = true;
-        $_SESSION['username'] = mysqli_fetch_array($result);
-
-        header('location: home.php');
-    }else
-    $errorMsg = "<p style=\"color:red;\">Gagal Login,
-    silakan ulangi lagi.</p>";
-}
-if (isset($errorMsg)) echo $errorMsg;
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Web Checklist Toilet</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-</head>
-<body style="margin-top: 30px; background-color: #8B008B;">
-<div class="container" style=" background-color: #2F4F4F; width: 70%; padding: 20px;" >
-<h1 style="color: #FFFFFF; text-align: center;">DATA CHECKLIST KEBERSIHAN TOILET</h1><br>
-<h2 style="color: #FFFFFF; text-align: center;">LOGIN</h2><br>
-    <form method="POST">
-        <div class="mb-3 row" style="background-color: #3CB371;">
-            <label for="staticEmail" class="col-sm-2 col-form-label" style="color: #FFFFFF;">Username</label>
-            <div class="col-sm-10">
-                <input style="color: #000000;" type="text" class="form-control" id="staticEmail" placeholder="Username" name="username">
-            </div>
-        </div>
-        <br>
-        <div class="mb-3 row " style="background-color: #3CB371;">
-            <label for="inputPassword" class="col-sm-2 col-form-label" style="color: #FFFFFF;">Password</label>
-            <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password" accept=""name="pass">
-            </div>
-        </div>
-        <br>
-        <div class="submit">
-            <button type="submit" name="submit" class="btn" style="background-color: #3CB371; color: #FFFFFF n ;">Login</button>
-        </div>
-        <div><br><br>
-            <p style="color: #FF4500;">Belum memiliki akun??</p>
-            <a href="tam_login.php" style="color: #FF4500;">Buat Akun Baru</a>
-        </div>
-    </form>
-</div>
-</body>
-```
-
-- Tam_login
-
-```
-<?php
-error_reporting(E_ALL);
-include_once 'koneksi.php';
-
-if (isset($_POST['submit']))
-{
-    $username = $_POST['username'];
-    $pass = $_POST['pass'];
-    $nama = $_POST['nama'];
-    $email = $_POST['email'];
-    $stat = $_POST['stat'];
-    $rol = $_POST['rol'];
-
-    $sql = 'INSERT INTO users ( username, pass, nama, email, stat, rol)';
-    $sql .= "VALUE ('$username', '$pass', '$nama', '$email', '$stat', '$rol')";
-    $result = mysqli_query($conn, $sql);
-    header('location: login.php');
-}
-?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tambah Akun</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-</head>
-<body style="margin-top: 30px; background-color: #0A2647;">
-    <div class="container" style= "background-color: #144272; width: 30%; ">
-        <h1 style="color: #FFFFFF; text-align: center;">Tambah Akun</h1>
-        <div class="main">
-            <form method="post" action="tam_login.php" enctype="multipart/form-data">    
-                <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Username</span>
-                    <input type="text" name="username" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Password</span>
-                    <input type="password" name="pass" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Nama</span>
-                    <input type="text" name="nama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-sm">E-mail</span>
-                    <input type="text" name="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <div class="">
-                    <h6 style="color: #FFFFFF;">Status</h6>
-                    <select class="form-select" aria-label="Default select example" name="stat">
-                        <option value=""></option>
-                        <option value="Aktif">Aktif</option>
-                        <option value="Nonaktif">Non Aktif</option>
-                    </select>
-                </div><br>
-                <div class="">
-                    <h6 style="color: #FFFFFF;">Role</h6>
-                    <select class="form-select" aria-label="Default select example" name="rol">
-                        <option value=""></option>
-                        <option value="Admin">Admin</option>
-                        <option value="User">User</option>
-                    </select>
-                </div> <br>
-                <input type="submit" name="submit" value="Simpan" class= "btn" style="background-color: #2C74B3; color: #FFFFFF;">
-            </form>
-        </div>
-    </div>
-</body>
-</html>
-```
-
-- login_season
-
-```
-<?php
-
-session_start();
-
-if (!isset($_SESSION['isLogin']))
-header('location: login.php');
-
-?>
-```
 
 - ind_toilet.php
 
@@ -814,34 +817,46 @@ header('location: ind_toilet.php');
 
 # Screnshoot tampilan di web user dan admin
 
+Tampilan daftar
+![Screenshot (391)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/5752295a-81b1-4523-ad98-0e17632aa65a)
+
+
+
 Tampilan Login
-![Screenshot (374)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/269ea9e4-dca4-44d4-88a4-5a65f4340d50)
+![Screenshot (392)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/e04fb918-d208-43f3-96de-ad9cd77efc37)
+
 
 
 Tampilan Menu
-![Screenshot (375)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/1602ceb4-97f8-484d-ac5a-ac59a3474a9b)
+![Screenshot (393)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/c6c36105-b2ac-47c2-acb6-aaacbc99de06)
+
 
 
 Tampilan Checklist Toilet
-![Screenshot (376)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/6341f5cc-54f6-45e3-adc8-f91fd08da9ad)
+![Screenshot (394)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/594b935f-443e-4f49-b77e-ca95e7b3fc31)
+
 
 Tampilan Tambah Data
-![Screenshot (381)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/97c1fe92-f079-4249-8fe0-8be210630b9b)
+![Screenshot (395)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/282a4da7-b0a2-40a1-a2c2-d648373fbe56)
+
 
 
 
 Tampilan Ubah Data
-![Screenshot (382)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/d2c9fa3e-374e-42e5-801d-4486ef9210eb)
+![Screenshot (396)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/0c9e5858-f2ec-4875-94d3-fc8e712145c9)
+
 
 
 
 Tampilan Data Toilet
-![Screenshot (383)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/973e1f78-562f-4c86-82dc-87a0be0ba574)
+![Screenshot (397)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/7ee47d5d-d7ed-494a-8391-01a9329c83b2)
+
 
 
 
 Tampilan Tambah Data Toilet
-![Screenshot (384)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/4017b15e-60bc-4e17-9e79-a739cdbd2c09)
+![Screenshot (398)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/3c3787fe-fdfa-46c3-867a-fe6c60b9b4f5)
+
 
 
 Terima Kasih 
