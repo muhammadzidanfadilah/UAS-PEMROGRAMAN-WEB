@@ -1,4 +1,4 @@
-# Project_UAS
+# Project_UAS PEMROGRAMAN WEB KELOMPOK 2
 
 || KELOMPOK 2 |
 | --- | --- |
@@ -13,7 +13,6 @@
 
 <Hr>
 
-# Tugas Project Ujian Akhir Semester
 
 **Membuat  Checklist Kebersihan Toilet**<br>
 
