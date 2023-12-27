@@ -95,20 +95,20 @@ ENGINE = InnoDB
 
 Kemudian untuk codingan tampilan dan isi database user itu sendiri 
 
-- login_season
+- Pertama kita membuat Koneksi.php terlebih dahulu
 
 ```
-<?php
-
-session_start();
-
-if (!isset($_SESSION['isLogin']))
-header('location: login.php');
-
+<?php 
+$host = "localhost"; 
+$user = "root"; 
+$pass = "";
+$db = "db_checklist"; 
+$conn = mysqli_connect($host, $user, $pass, $db); 
 ?>
 ```
 
-- Login.php
+
+- Kemudian kita membuat form Login.php dengan username dan password
 
 ```
 <?php
@@ -173,7 +173,7 @@ if (isset($errorMsg)) echo $errorMsg;
 </body>
 ```
 
-- Tam_login
+- Disini kita membuat tam.login.php untuk daftar
 
 ```
 <?php
@@ -250,21 +250,22 @@ if (isset($_POST['submit']))
 </html>
 ```
 
-
-
-- Koneksi.php
-
+- Jangan lupa membuat Login_season .php
 ```
-<?php 
-$host = "localhost"; 
-$user = "root"; 
-$pass = "";
-$db = "db_checklist"; 
-$conn = mysqli_connect($host, $user, $pass, $db); 
+<?php
+
+session_start();
+
+if (!isset($_SESSION['isLogin']))
+header('location: login.php');
+
 ?>
 ```
 
-- index.php
+
+
+
+- Disini adalah bagian terpeting dalam pembuatan web pada Index.php
 
 ```
 <?php
@@ -359,7 +360,7 @@ $result = mysqli_query($conn, $sql);
 </html>
 ```
 
-- home.php
+- Kemudian kita membuat menu Home.php
 
 ```
 <?php
@@ -393,7 +394,7 @@ include_once 'koneksi.php';
 </html>
 ```
 
-- tambah.php
+- Disini kita ada membuat menu tambah.php untuk menambah sesuatu yang di inginkan
 
 ```
 <?php
@@ -518,7 +519,7 @@ if (isset($_POST['submit']))
 </html>
 ```
 
-- ubah.php
+-  Selanjutnya kita membuat Ubah.php untuk mengubah yang kita inginkan
 
 ```
 <?php
@@ -651,7 +652,7 @@ if (isset($_POST['submit']))
 </html>
 ```
 
-- hapus.php
+- Kita membuat menu Hapus.php untuk menghapus data yang diinginkan
 
 ```
 <?php
@@ -665,7 +666,8 @@ header('location: index.php');
 
 
 
-- ind_toilet.php
+- Disini ada Ind_toilet bagian pada toilet mengatur isi pada toilet
+
 
 ```
 <?php
@@ -741,7 +743,7 @@ $result = mysqli_query($conn, $sql);
 </html>
 ```
 
-- tam_toilet.php
+- Disini kita menambah data pada Tam_toilet
 
 ```
 <?php
@@ -806,7 +808,7 @@ if (isset($_POST['submit']))
 </html>
 ```
 
-- hap_toilet.php
+- Yang terakhir ada Hap_toilet untuk menghapus toilet
 
 ```
 <?php
