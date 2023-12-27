@@ -5,11 +5,11 @@
 
 | NAMA  | NIM |
 | --- | --- |
-| MUHAMMAD ZIDAN FADILLAH   | 312210277 |
-| MUHAMMAD VERDY HASAN ALHAFIZ  | 312210214 |
-|  SAHRUL RIDWANSYAH   | 312210063 |
+| Muhammad Zidan Fadillah     | 312210277 |
+| Muhammad Verd Hasan Alhafiz   | 312210214 |
+| Sahrul Ridwansyah   | 312210063 |
 | KELAS :| TI.22.A2 |
-| DOSEN :| Agung Nugroho,S.Kom.,M.Kom |
+| DOSEN PENGAMPU :| Agung Nugroho, S.Kom., M.Kom |
 
 <Hr>
 
