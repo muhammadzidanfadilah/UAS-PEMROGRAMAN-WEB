@@ -30,6 +30,9 @@ Pertama kita membuat database dahulu
 
 
 # 1. DATABASE dbchekclist
+![Screenshot (421)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/ff9f36d3-49d2-4bf8-9ae9-2249eea0e1c8)
+
+
 
 - Table user
 
@@ -47,6 +50,9 @@ UNIQUE INDEX `username_UNIQUE` (`username` ASC),
 UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB
 ```
+![Screenshot (422)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/bce64e77-b369-4833-bd89-8324ee1e193f)
+
+
 
 - Table toilet
 
@@ -58,6 +64,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`toilet` (
 PRIMARY KEY (`id`))
 ENGINE = InnoDB
 ```
+![Screenshot (423)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/a02da6da-6ad8-4531-bf34-3ced8c673b57)
+
+
 - Table  checklist
 
 ```
@@ -88,6 +97,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION)
 ENGINE = InnoDB
 ```
+![Screenshot (424)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/973f8a84-5a66-4d31-bae2-f0ea65a7aede)
 
 
 # 2. TAMPILAN DAN ISI 
