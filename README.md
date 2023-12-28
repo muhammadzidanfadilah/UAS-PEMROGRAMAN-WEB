@@ -24,7 +24,7 @@
 | --- | --- |
 |link Web HOSTING DEMO : |  |
 |link youtube : |  |
-| link drive pdf laporan : | https://drive.google.com/file/d/1DbffdNiNLaoFVlFmase2OgRbQ3qlXsN6/view?usp=drivesdk |
+| link drive pdf laporan : | https://drive.google.com/file/d/1DliOH1Iw7-c2THuW7uqFx7aOdf1latny/view?usp=drivesdk  |
 
 Pertama kita membuat database dahulu 
 
