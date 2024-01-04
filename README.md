@@ -28,7 +28,7 @@
 | --- | --- |
 |link Web HOSTING DEMO : | https://projectuaskelompok2.000webhostapp.com/login.php  |
 |link youtube : | https://youtu.be/fo5flCzYxxY?si=T25bzFEOLBVRzptl |
-| link drive pdf laporan : | https://drive.google.com/file/d/1DliOH1Iw7-c2THuW7uqFx7aOdf1latny/view?usp=drivesdk  |
+| link drive pdf laporan : | https://drive.google.com/file/d/1Dphitx4M_8PTXtfEzJ22LbRuu5MAGC6w/view?usp=drivesdk |
 
 Pertama kita membuat database dahulu 
 
