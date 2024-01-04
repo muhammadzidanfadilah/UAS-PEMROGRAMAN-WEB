@@ -1,4 +1,4 @@
-# "assalamualaikum warahmatullahi wabarakatuh"
+# Assalamualaikum warahmatullahi wabarakatuh
 
 # Project_UAS PEMROGRAMAN WEB KELOMPOK 2
 
@@ -12,6 +12,8 @@
 | Sahrul Ridwansyah   | 312210063 |
 | KELAS :| TI.22.A2 |
 | DOSEN PENGAMPU :| Agung Nugroho, S.Kom., M.Kom |
+| MATA KULIAH  :| Pemrograman Web |
+
 
 <Hr>
 
