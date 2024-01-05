@@ -26,9 +26,9 @@
 
 || HASIL  |
 | --- | --- |
-|link Web HOSTING DEMO : | https://projectuaskelompok2.000webhostapp.com/login.php  |
+|link Web HOSTING DEMO : | https://ceklistoilet.000webhostapp.com/login.php  |
 |link youtube : | https://youtu.be/fo5flCzYxxY?si=T25bzFEOLBVRzptl |
-| link drive pdf laporan : | https://drive.google.com/file/d/1DtymHNmZGu5CFKcYII4ac1TBbTGHq2mX/view?usp=drivesdk |
+| link drive pdf laporan : |https://drive.google.com/file/d/1E9rk2c9tUU26fwN2XfI_z4sZtWwo2EoQ/view?usp=drivesdk |
 
 Pertama kita membuat database dahulu 
 
@@ -1151,12 +1151,12 @@ Tampilan Login
 
 Tampilan Menu
 ![Screenshot (469)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/d1fc0d1a-fa39-4392-9c33-3f6a5b831bf4)
+![Screenshot (480)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/6b660c67-f0f7-41bf-9d04-f77f652a71b3)
 
 
 
 
 Tampilan Checklist Toilet
-![Screenshot (475)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/bf24e28f-fab4-41d7-9976-fcbdc286de2c)
 
 
 Tampilan Tambah Data
