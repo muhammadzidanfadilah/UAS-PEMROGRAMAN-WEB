@@ -20,9 +20,9 @@
 
 **Membuat  Checklist Kebersihan Toilet**<br>
 
-|username :| admin  |
+|username :| Admin  |
 | --- | --- |
-|password : | admin |
+|password : | Admin |
 
 || HASIL  |
 | --- | --- |
