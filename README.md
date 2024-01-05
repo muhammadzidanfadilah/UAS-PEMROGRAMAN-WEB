@@ -27,7 +27,7 @@
 || HASIL  |
 | --- | --- |
 |link Web HOSTING DEMO : | https://ceklistoilet.000webhostapp.com/login.php  |
-|link youtube : | https://youtu.be/fo5flCzYxxY?si=T25bzFEOLBVRzptl |
+|link youtube : | https://youtu.be/x6T9CjDuchA?si=rZwDveANFxepTfOD |
 | link drive pdf laporan : |https://drive.google.com/file/d/1E9rk2c9tUU26fwN2XfI_z4sZtWwo2EoQ/view?usp=drivesdk |
 
 Pertama kita membuat database dahulu 
