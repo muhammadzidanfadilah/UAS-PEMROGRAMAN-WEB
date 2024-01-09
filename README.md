@@ -10,9 +10,18 @@
 | Muhammad Zidan Fadillah     | 312210277 |
 | Muhammad Verd Hasan Alhafiz   | 312210214 |
 | Sahrul Ridwansyah   | 312210063 |
+
+| --- | --- |
 | KELAS :| TI.22.A2 |
+| --- | --- |
+
+| --- | --- |
 | DOSEN PENGAMPU :| Agung Nugroho, S.Kom., M.Kom |
+| --- | --- |
+
+| --- | --- |
 | MATA KULIAH  :| Pemrograman Web |
+| --- | --- |
 
 
 <Hr>
@@ -28,7 +37,7 @@
 | --- | --- |
 |link Web HOSTING DEMO : | https://kelompok2toilet.000webhostapp.com/login.php  |
 |link youtube : | https://youtu.be/x6T9CjDuchA?si=rZwDveANFxepTfOD |
-| link drive pdf laporan : |https://drive.google.com/file/d/1E9rk2c9tUU26fwN2XfI_z4sZtWwo2EoQ/view?usp=drivesdk |
+| link drive pdf laporan : |https://drive.google.com/file/d/1EKl5CfoAaqPuxkDtpW5Q5yZBDXUeqDjo/view?usp=drivesdk |
 
 Pertama kita membuat database dahulu 
 
@@ -1172,7 +1181,8 @@ Tampilan Ubah Data
 
 
 Tampilan Data Toilet
-![Screenshot (477)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/25613748-124c-4987-97cb-f5c2ea251985)
+![Screenshot (509)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/94606108-6c49-41b6-ba9e-50ee5415cefe)
+
 
 
 
@@ -1180,6 +1190,11 @@ Tampilan Data Toilet
 
 Tampilan Tambah Data Toilet
 ![Screenshot (398)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/3c3787fe-fdfa-46c3-867a-fe6c60b9b4f5
+
+Tampilan Ubah Data Toilet
+![Screenshot (510)](https://github.com/muhammadzidanfadilah/UAS-PEMROGRAMAN-WEB/assets/115553474/0fb174e2-85ca-4d17-908d-89e723fbac3a)
+
+
 
 
 Tampilan laporan
